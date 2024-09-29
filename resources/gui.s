@@ -2186,60 +2186,60 @@ drawNumber:
 	rts
 digits:		.byte "0123456789"
 
-s0:		.byte "HEALTH POINTS",0
-s1:		.byte "STRENGTH",0
-s2:		.byte "INTELLIGENCE",0
-s3:		.byte "WISDOM",0
-s4:		.byte "DEXTERITY",0
-s5:		.byte "CONSTITUTION",0
+s0:		.byte "GESUNDHEIT",0
+s1:		.byte "STAERKE",0
+s2:		.byte "INTELLIGENZ",0
+s3:		.byte "WEISHEIT",0
+s4:		.byte "GEWANDTHEIT",0
+s5:		.byte "KONSTITUTION",0
 s6:		.byte "CHARISMA",0
-s7:		.byte "ARMOR CLASS",0
+s7:		.byte "RUESTUNG",0
 s8:		.byte "EXP	L",0
 
 alignmentTxt_lo: .byte <a0,<a1,<a2,<a3,<a4,<a5,<a6,<a7,<a8
 alignmentTxt_hi: .byte >a0,>a1,>a2,>a3,>a4,>a5,>a6,>a7,>a8
-a0: 	.byte "LAWFUL GOOD",0
-a1: 	.byte "NEUTRAL GOOD",0
-a2: 	.byte "CHAOTIC GOOD",0
-a3: 	.byte "LAWFUL NEUTRAL",0
-a4: 	.byte "TRUE NEUTRAL",0
-a5: 	.byte "CHAOTIC NEUTRAL",0
-a6: 	.byte "LAWFUL EVIL",0
-a7: 	.byte "NEUTRAL EVIL",0
-a8: 	.byte "CHAOTIC EVIL",0
+a0: 	.byte "RECHTSCH. GUT",0
+a1: 	.byte "NEUTRAL GUT",0
+a2: 	.byte "CHAOTISCH GUT",0
+a3: 	.byte "RECHTSCH. NEUTRAL",0
+a4: 	.byte "ABSOLUT NEUTRAL",0
+a5: 	.byte "CHAOTISCH NEUTRAL",0
+a6: 	.byte "RECHTSCH. BOESE",0
+a7: 	.byte "NEUTRAL BOESE",0
+a8: 	.byte "CHAOTISCH BOESE",0
 
 raceTxt_lo: .byte <r0,<r1,<r2,<r3,<r4,<r5,<r6,<r7,<r8,<r9,<r10,<r11
 raceTxt_hi: .byte >r0,>r1,>r2,>r3,>r4,>r5,>r6,>r7,>r8,>r9,>r10,>r11
-r0: 	.byte "HUMAN MALE",0
-r1: 	.byte "HUMAN FEMALE",0
-r2: 	.byte "ELF MALE",0
-r3: 	.byte "ELF FEMALE",0
-r4: 	.byte "HALF-ELF MALE",0
-r5: 	.byte "HALF-ELF FEMALE",0
-r6: 	.byte "DWARF MALE",0
-r7: 	.byte "DWARF FEMALE",0
-r8: 	.byte "GNOME MALE",0
-r9: 	.byte "GNOME FEMALE",0
-r10: 	.byte "HALFLING MALE",0
-r11: 	.byte "HALFLING FEMALE",0
+r0: 	.byte "MENSCH MAENNL.",0
+r1: 	.byte "MENSCH WEIBL.",0
+r2: 	.byte "ELF MAENNL.",0
+r3: 	.byte "ELF WEIBL.",0
+r4: 	.byte "HALB-ELF MAENNL.",0
+r5: 	.byte "HALB-ELF WEIBL.",0
+r6: 	.byte "ZWERG MAENNL.",0
+r7: 	.byte "ZWERG WEIBL.",0
+r8: 	.byte "GNOM MAENNL.",0
+r9: 	.byte "GNOM WEIBL.",0
+r10: 	.byte "HALBLING MAENNL.",0
+r11: 	.byte "HALBLING WEIBL.",0
 
 classTxt_lo: .byte <c0,<c1,<c2,<c3,<c4,<c5,<c6,<c7,<c8,<c9,<c10,<c11,<c12,<c13,<c14
 classTxt_hi: .byte >c0,>c1,>c2,>c3,>c4,>c5,>c6,>c7,>c8,>c9,>c10,>c11,>c12,>c13,>c14
-c0: 	.byte "FIGHTER",0
-c1: 	.byte "RANGER",0
+c0: 	.byte "K",93,"MPFER",0
+c1: 	.byte "WALDL",93,"UFER",0
 c2: 	.byte "PALADIN",0
-c3: 	.byte "MAGE",0
-c4: 	.byte "CLERIC",0
-c5: 	.byte "THIEF",0
-c6: 	.byte "FIGHTER",13,"CLERIC",0
-c7: 	.byte "FIGHTER",13,"THIEF",0
-c8: 	.byte "FIGHTER",13,"MAGE",0
-c9: 	.byte "FIGHTER",13,"MAGE",13,"THIEF",0
-c10: 	.byte "THIEF",13,"MAGE",0
-c11: 	.byte "CLERIC",13,"THIEF",0
-c12: 	.byte "FIGHTER",13,"CLERIC",13,"MAGE",0
-c13: 	.byte "RANGER",13,"CLERIC",0
-c14: 	.byte "CLERIC",13,"MAGE",0
+c3: 	.byte "MAGIER",0
+c4: 	.byte "KLERIKER",0
+c5: 	.byte "DIEB",0
+c6: 	.byte "K",93,"MPFER",13,"KLERIKER",0
+c7: 	.byte "K",93,"MPFER",13,"DIEB",0
+c8: 	.byte "K",93,"MPFER",13,"MAGIER",0
+c9: 	.byte "K",93,"MPFER",13,"MAGIER",13,"DIEB",0
+c10: 	.byte "DIEB",13,"MAGIER",0
+c11: 	.byte "KLERIKER",13,"DIEB",0
+c12: 	.byte "K",93,"MPFER",13,"KLERIKER",13,"MAGIER",0
+c13: 	.byte "WALDL",93,"UFER",13,"KLERIKER",0
+c14: 	.byte "KLERIKER",13,"MAGIER",0
 .endproc
 
 .segment "GUI"
@@ -2982,9 +2982,9 @@ fallThrough:
 
 		sec
 		rts
-twomhzString: .byte "2Mhz mode: ",0
-enabledString: .byte "enabled",0
-disabledString:.byte "disabled",0
+twomhzString: .byte "2Mhz Modus: ",0
+enabledString: .byte "aktiviert",0
+disabledString:.byte "deaktiviert",0
 .popseg
 .endproc
 
@@ -3015,13 +3015,13 @@ disabledString:.byte "disabled",0
 		sec
 		rts
 		
-mouseString: .byte "Mouse driver: ",0
+mouseString: .byte "Maustreiber: ",0
 mouseTypes_lo: .byte <m0,<m1,<m2
 mouseTypes_hi: .byte >m0,>m1,>m2
-m0:		.byte "1351 (Acc)",0
-m1:		.byte "1351 (No Acc)",0
-;m2:		.byte "Joy-mouse",0
-m2:		.byte "None",0
+m0:		.byte "1351 (Beschl)",0
+m1:		.byte "1351 (ohne B)",0
+;m2:		.byte "Joy-Mouse",0
+m2:		.byte "Keiner",0
 .popseg
 .endproc
 
@@ -3498,7 +3498,7 @@ dont:	ldx #$ff
 		jsr text_writeNullString
 		rts
 
-takenString:	.byte " taken.",$a,0
+takenString:	.byte "  genommen.",$a,0
 .endproc
 
 .proc _moveClickHandler
@@ -3792,7 +3792,7 @@ forwardDeltaHi:
 		ldy #>abortedTxt
 		jsr text_writeNullString
 		jmp return
-		abortedTxt:.byte $a,"Spell aborted.",$a,0
+		abortedTxt:.byte $a,"Zauber abgebrochen.",$a,0
 	:
 
 	stx AFFECTED_MEMBER_INDEX
@@ -4157,7 +4157,7 @@ stats_gfx:	.incbin "converters/ui/stats-bitmap.bin"
 			ldy #>cantUseTxt
 			jsr text_writeNullString
 			rts
-			cantUseTxt:.byte " can not use this item.",$a,0
+			cantUseTxt:.byte " kann das nicht benutzen.",$a,0
 		:
 
 		; Now if it is bare hands CUR_ITEM will be 0 here. Let it point to the first item instead to represent the hands
@@ -4201,7 +4201,7 @@ case16:
 		ldy #>thisItemIsAutomaticallyUsedWhenWorn
 		jsr text_writeNullString
 		jmp break
-		thisItemIsAutomaticallyUsedWhenWorn:.byte "This item is automatically used when worn.",$a,0
+		thisItemIsAutomaticallyUsedWhenWorn:.byte "Dieses Objekt wird automatisch verwendet",$a,0
 case1:
 case2:
 case3:
@@ -4221,7 +4221,7 @@ case15:
 		ldy #>thisItemIsNotUsedInThisWay
 		jsr text_writeNullString
 		jmp break
-		thisItemIsNotUsedInThisWay:.byte "This item is not used in this way.",$a,0
+		thisItemIsNotUsedInThisWay:.byte "Dieses Objekt wird so nicht verwendet.",$a,0
 case5:		lda #0
 		jmp :+
 case6:		lda #1
@@ -4349,7 +4349,7 @@ cases_hi:	.byte >case0
 .proc useItemInInventory
 		handIndex = ATTACKING_HAND_INDEX
 
-		; Don't allow to use hands directly from inventory
+		; Dont allow to use hands directly from inventory
 		cpx #2
 		bcs :+
 			rts
@@ -4395,7 +4395,7 @@ cases_hi:	.byte >case0
 			ldy #>cantUseTxt
 			jsr text_writeNullString
 			rts
-			cantUseTxt:.byte " can not use this item.",$a,0
+			cantUseTxt:.byte " kann das nicht benutzen.",$a,0
 		:
 
 		; Fetch itemType.usae
@@ -4426,7 +4426,7 @@ case16:
 		ldy #>thisItemIsAutomaticallyUsedWhenWorn
 		jsr text_writeNullString
 		jmp break
-		thisItemIsAutomaticallyUsedWhenWorn:.byte "This item is automatically used when worn.",$a,0
+		thisItemIsAutomaticallyUsedWhenWorn:.byte "Dieses Objekt wird automatisch verwendet",$a,0
 case1:
 case2:
 case3:
@@ -4442,7 +4442,7 @@ case15:
 		ldy #>thisItemIsNotUsedInThisWay
 		jsr text_writeNullString
 		jmp break
-		thisItemIsNotUsedInThisWay:.byte "This item is not used in this way.",$a,0
+		thisItemIsNotUsedInThisWay:.byte "Dieses Objekt wird so nicht verwendet.",$a,0
 case5:
 case6:
 		jmp break
@@ -5404,7 +5404,7 @@ helpButtonBracketRight:
 	.byte %11000000
 .endproc
 
-	.assert .sizeof(font8) < 31*8, error, "Too many custom chars in font"
+	.assert .sizeof(font8) < 31*8, error, "Too many custom chars in font"  ;Zu viele definierte Zeichen im Font
 
 	.res 31*8 - .sizeof(font8), $ff
 
@@ -5426,6 +5426,6 @@ helpButtonBracketRight:
 		jsrf audio_playSoundEffect
 		inc ASK_FOR_SPELL_RECEIVER_GUI
 		rts
-txt:		.byte "Cast spell on which character? ",0
+txt:		.byte "Zauber auf welchen Charakter anwenden? ",0
 .endproc
 

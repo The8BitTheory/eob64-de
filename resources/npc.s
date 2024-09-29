@@ -652,22 +652,22 @@ npc7:	.word _freeHim
 		.word _killHim
 		.word _leave
 
-_wishLuck:		.byte $a, "     I wish you luck in your travels.",0
-_tendHisWounds:	.byte "Tend Wounds",0
-_talk:			.byte "    Talk"   ,0
-_leave:			.byte "   Leave"   ,0
-_hearProposal:	.byte "  Hear Him" ,0
-_helpHim:		.byte "  Help Him" ,0
-_healParty:		.byte "Heal Party" ,0
-_resurrectDead:	.byte " Resurrect" ,0
-_attack:		.byte "  Attack!"  ,0
-_bribe:			.byte "   Bribe"   ,0
-_killHer:		.byte "  Kill Her" ,0
-_hearHerOut:	.byte "  Hear Her" ,0
-_letHerGo:		.byte " Let Her Go",0
-_surrender:		.byte " Surrender" ,0
-_freeHim:		.byte " Free Him"  ,0
-_killHim:		.byte "  Kill Him" ,0
+_wishLuck:		.byte $a, "     Viel Gl",127,"ck auf Euren Reisen.",0
+_tendHisWounds:	.byte "Wunden behandeln",0
+_talk:			.byte "    Sprechen"   ,0
+_leave:			.byte "   Gehen"   ,0
+_hearProposal:	.byte "  Ihn anh",126,"ren" ,0
+_helpHim:		.byte "  Ihm helfen" ,0
+_healParty:		.byte "Team heilen" ,0
+_resurrectDead:	.byte " Wiederbeleben" ,0
+_attack:		.byte "  Angreifen!"  ,0
+_bribe:			.byte "   Bestechen"   ,0
+_killHer:		.byte "  Sie t",126,"ten" ,0
+_hearHerOut:	.byte "  Sie anh",126,"ren" ,0
+_letHerGo:		.byte " Sie gehen lassen",0
+_surrender:		.byte " Ergeben" ,0
+_freeHim:		.byte " Ihn befreien"  ,0
+_killHim:		.byte "  Ihn t",126,"ten" ,0
 .endproc
 
 .pushseg
@@ -842,7 +842,8 @@ _killHim:		.byte "  Kill Him" ,0
 		:
 
 		rts
-_whichShould:   .byte "Which should be resurrected?",0
+_whichShould:   .byte "Wer soll wiederbelebt werden?",0
+
 .endproc
 
 .proc selectCharacter
@@ -1045,8 +1046,8 @@ done:
 		rts
 mul6:	.byte 0,6,12,18
 
-previous:		.byte " Prev",0
-next:			.byte " Next",0
+previous:		.byte "Vorhr",0
+next:			.byte "Weitr",0
 
 .pushseg
 .segment "CAMP"
@@ -1359,12 +1360,12 @@ chosen:	tax ;Callback must be local to the CAMP segment. A-register is not retai
 done:			pla
 				sta textRows2
 				rts
-joinsTxt:		.byte " joins the party.",$a,0
+joinsTxt:		.byte " tritt dem Team bei.",$a,0
 buttons:		.word yesTxt
 				.word 0
 				.word noTxt
-yesTxt:			.byte "    Yes",0
-noTxt:			.byte "    No",0
+yesTxt:			.byte "     Ja",0
+noTxt:			.byte "  Nein",0
 .endproc
 
 ; x=xpos
@@ -1443,7 +1444,7 @@ noTxt:			.byte "    No",0
 		:
 		jmp drop
 
-select: .byte "Select the character you wish to drop:",0
+select: .byte "W",125,"hle den zu entlassenden Charakter",0
 .endproc
 
 ; Returns true in c if a member was dropped, otherwise false
@@ -1458,7 +1459,7 @@ select: .byte "Select the character you wish to drop:",0
 		:
 		jmp drop
 
-maxTxt: .byte "Party full! Select character to drop:",0
+maxTxt: .byte "Team ist voll! Charakter zum Ablegen w.",0
 .endproc
 
 .proc drop
@@ -1467,7 +1468,7 @@ maxTxt: .byte "Party full! Select character to drop:",0
 		rts
 .endproc
 
-cancelTxt:.byte " Cancel",0
+cancelTxt:.byte "Abbruch",0 
 
 .proc writeTextMessage
 		dex
@@ -1687,7 +1688,7 @@ cancelTxt:.byte " Cancel",0
 npcPresets_lo:	.byte <npc0,<npc1,<npc2,<npc3,<npc4,<npc5,<npc6,<npc7,<npc8
 npcPresets_hi:	.byte >npc0,>npc1,>npc2,>npc3,>npc4,>npc5,>npc6,>npc7,>npc8
 
-.assert .sizeof(npc0) = .sizeof(npc1), error, "0!=1 Wrong NPC size"
+.assert .sizeof(npc0) = .sizeof(npc1), error, "0!=1 Wrong NPC size"    ;Falsche NPC-Größe
 .assert .sizeof(npc1) = .sizeof(npc2), error, "1!=2 Wrong NPC size"
 .assert .sizeof(npc2) = .sizeof(npc3), error, "2!=3 Wrong NPC size"
 .assert .sizeof(npc3) = .sizeof(npc4), error, "3!=4 Wrong NPC size"

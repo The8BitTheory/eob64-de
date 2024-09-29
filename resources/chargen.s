@@ -894,19 +894,19 @@ races:
 		.word o0,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11
 		.word 0
 
-		title:	.byte "SELECT RACE:",0
-		o0: 	.byte "HUMAN MALE",0
-		o1: 	.byte "HUMAN FEMALE",0
-		o2: 	.byte "ELF MALE",0
-		o3: 	.byte "ELF FEMALE",0
-		o4: 	.byte "HALF-ELF MALE",0
-		o5: 	.byte "HALF-ELF FEMALE",0
-		o6: 	.byte "DWARF MALE",0
-		o7: 	.byte "DWARF FEMALE",0
-		o8: 	.byte "GNOME MALE",0
-		o9: 	.byte "GNOME FEMALE",0
-		o10: 	.byte "HALFLING MALE",0
-		o11: 	.byte "HALFLING FEM'",0
+		title:	.byte "W",93,"HLE RASSE:",0
+		o0: 	.byte "MENSCH M",93,"NNL.",0
+		o1: 	.byte "MENSCH WEIBL.",0
+		o2: 	.byte "ELF M",93,"NNL.",0
+		o3: 	.byte "ELF WEIBL.",0
+		o4: 	.byte "HALB-ELF M",93,"NNL.",0
+		o5: 	.byte "HALB-ELF WEIBL.",0
+		o6: 	.byte "ZWERG M",93,"NNL.",0
+		o7: 	.byte "ZWERG WEIBL.",0
+		o8: 	.byte "GNOM M",93,"NNL.",0
+		o9: 	.byte "GNOM WEIBL.",0
+		o10: 	.byte "HALBLING M",93,"NNL.",0
+		o11: 	.byte "HALBLING WEIBL.'",0
 .endproc
 
 .proc doClassMenu
@@ -963,22 +963,22 @@ classes:
 		.word o0,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12,o13,o14
 		.word 0
 
-		title:	.byte "SELECT CLASS:",0
-		o0: 	.byte "FIGHTER",0
-		o1: 	.byte "RANGER",0
+		title:	.byte "W",93,"HLE KLASSE:",0
+		o0: 	.byte "K",93,"MPFER",0
+		o1: 	.byte "WALDL",93,"UFER",0
 		o2: 	.byte "PALADIN",0
-		o3: 	.byte "MAGE",0
-		o4: 	.byte "CLERIC",0
-		o5: 	.byte "THIEF",0
-		o6: 	.byte "FIGHTER/CLERIC",0
-		o7: 	.byte "FIGHTER/THIEF",0
-		o8: 	.byte "FIGHTER/MAGE",0
-		o9: 	.byte "FIGHTER/MAGE/THIEF",0
-		o10: 	.byte "THIEF/MAGE",0
-		o11: 	.byte "CLERIC/THIEF",0
-		o12: 	.byte "FIGHTR/CLERIC/MAGE",0 ;This is not a spelling error. The sprite layer cant hold more chars.
-		o13: 	.byte "RANGER/CLERIC",0
-		o14: 	.byte "CLERIC/MAGE",0
+		o3: 	.byte "MAGIER",0
+		o4: 	.byte "KLERIKER",0
+		o5: 	.byte "DIEB",0
+		o6: 	.byte "K",93,"MPFER/KLERIKER",0
+		o7: 	.byte "K",93,"MPFER/DIEB",0
+		o8: 	.byte "K",93,"MPFER/MAGIER",0
+		o9: 	.byte "K",93,"MPFR/MAGIER/DIEB",0
+		o10: 	.byte "DIEB/MAGIER",0
+		o11: 	.byte "KLERIKER/DIEB",0
+		o12: 	.byte "K",93,"MPFR/KLRIKR/MAGR",0 ;This is not a spelling error. The sprite layer cant hold more chars.
+		o13: 	.byte "WALDL",93,"UFER/KLERIKR",0
+		o14: 	.byte "KLERIKER/MAGIER",0
 .endproc
 
 .proc doAlignmentMenu
@@ -1035,16 +1035,16 @@ menu:
 		.word o0,o1,o2,o3,o4,o5,o6,o7,o8
 		.word 0
 
-		title:	.byte "SELECT ALIGNMENT:",0
-		o0: 	.byte "LAWFUL GOOD",0
-		o1: 	.byte "NEUTRAL GOOD",0
-		o2: 	.byte "CHAOTIC GOOD",0
-		o3: 	.byte "LAWFUL NEUTRAL",0
-		o4: 	.byte "TRUE NEUTRAL",0
-		o5: 	.byte "CHAOTIC NEUTRAL",0
-		o6: 	.byte "LAWFUL EVIL",0
-		o7: 	.byte "NEUTRAL EVIL",0
-		o8: 	.byte "CHAOTIC EVIL",0
+		title:	.byte "GESINNUNG W",93,"HLEN:",0
+		o0: 	.byte "RECHTSCH. GUT",0
+		o1: 	.byte "NEUTRAL GUT",0
+		o2: 	.byte "CHAOTISCH GUT",0
+		o3: 	.byte "RECHTSCH. NEUTRAL",0
+		o4: 	.byte "ABSOLUT NEUTRAL",0
+		o5: 	.byte "CHAOTISCH NEUTRAL",0
+		o6: 	.byte "RECHTSCH. B",94,"SE",0
+		o7: 	.byte "NEUTRAL B",94,"SE",0
+		o8: 	.byte "CHAOTISCH B",94,"SE",0
 .endproc
 
 .proc doSelectMember
@@ -1229,16 +1229,16 @@ done:	ldx CURRENT_PARTYMEMBER_INDEX
 box_x:	.byte $28,$68,$28,$68
 box_y:	.byte $71,$71,$b1,$b1
 
-text1:	.byte "Select the box of",$a
-		.byte "the character you",$a
-		.byte "wish to create or",$a
-		.byte "view.",0
+text1:	.byte "W",125,"hle das Feld",$a
+		.byte "des Charakters",$a
+		.byte "zum Erstellen oder",$a
+		.byte "Anschauen.",0
 
-text2:	.byte "Your party is",$a
-		.byte "complete. Select",$a
-		.byte "the PLAY button",$a
-		.byte "or press 'P' to",$a
-		.byte "start the game.",0
+text2:	.byte "Ihr Team ist",$a
+		.byte "komplett. PLAY-",$a
+		.byte "Knopf oder 'P'",$a
+		.byte "dr",127,"cken, um zu",$a
+		.byte "beginnen.",0
 .endproc
 
 .proc showCharacterStats
@@ -2940,22 +2940,22 @@ members_lo:
 members_hi:
 		.byte >_1, >_2, >_3, >_4
 
-_1:		.byte "FighterA  ",0
+_1:		.byte "K",125,"mpferA  ",0
 		.byte (RACE_HUMAN<<1)|SEX_MALE
 		.byte MULTICLASS_FIGHTER
 		.byte ALIGNMENT_LAWFUL_GOOD
 		.byte 0
-_2:		.byte "FighterB  ",0
+_2:		.byte "K",125,"mpferB  ",0
 		.byte (RACE_HUMAN<<1)|SEX_MALE
 		.byte MULTICLASS_FIGHTER
 		.byte ALIGNMENT_LAWFUL_GOOD
 		.byte 1
-_3:		.byte "Mage      ",0
+_3:		.byte "Magier    ",0
 		.byte (RACE_ELF<<1)|SEX_FEMALE
 		.byte MULTICLASS_MAGE
 		.byte ALIGNMENT_LAWFUL_GOOD
 		.byte 29
-_4:		.byte "Cleric    ",0
+_4:		.byte "Kleriker  ",0
 		.byte (RACE_HALFELF<<1)|SEX_FEMALE
 		.byte MULTICLASS_CLERIC
 		.byte ALIGNMENT_LAWFUL_GOOD

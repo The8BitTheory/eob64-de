@@ -1592,59 +1592,59 @@ minusString:
 	.byte " -",0
 
 potionOfString:
-	.byte "Potion of ",0
+	.byte "Trank ",0
 
 mageOfString:
-	.byte "Mage Scroll of ",0
+	.byte "Magier-Schriftr. ",0
 
 clericOfString:
-	.byte "Cleric Scroll of ",0
+	.byte "Kleriker-Schriftr. ",0
 
 ringOfString:
-	.byte "Ring of ",0
+	.byte "Ring ",0
 
 wandOfString:
-	.byte "Wand of ",0
+	.byte "Stab ",0
 
 wandString:
-	.byte "Wand",0
+	.byte "Zauberstab",0
 
 rings:
-	_ring0:.byte "Adornment",0
-	_ring1:.byte "Wizardry",0
-	_ring2:.byte "Sustenance",0
-	_ring3:.byte "Feather Fall",0
+	_ring0:.byte "der Verehrung",0
+	_ring1:.byte "der Zauberei",0
+	_ring2:.byte "der Ern",125,"hrung",0
+	_ring3:.byte "des Federfalls",0
 rings_lo:
 	.byte <_ring0, <_ring1, <_ring2, <_ring3
 rings_hi:
 	.byte >_ring0, >_ring1, >_ring2, >_ring3
-
+; 17 chars - memorize
 clericScrolls:
 	_cs00: .byte "",0
-	_cs01: .byte "Bless",0
-	_cs02: .byte "Cure Light Wnds",0
-	_cs03: .byte "Cause Light Wnds",0
-	_cs04: .byte "Detect Magic",0
-	_cs05: .byte "Protect Evil",0
-	_cs06: .byte "Aid",0
-	_cs07: .byte "Flame Blade",0
-	_cs08: .byte "Hold Person",0
-	_cs09: .byte "Slow Poison",0
-	_cs0a: .byte "Create Food",0
-	_cs0b: .byte "Dispel Magic",0
-	_cs0c: .byte "Magical Vestment",0
-	_cs0d: .byte "Prayer",0
-	_cs0e: .byte "Remove Paralysis",0
-	_cs0f: .byte "Cure Serious",0
-	_cs10: .byte "Cause Serious",0
-	_cs11: .byte "Neutral Poison",0
-	_cs12: .byte "Protect Evil Ten'",0
-	_cs13: .byte "Protect Lightning",0
-	_cs14: .byte "Cure Critical",0
-	_cs15: .byte "Cause Critical",0
-	_cs16: .byte "Flame Strike",0
-	_cs17: .byte "Raise Dead",0
-	_cs18: .byte "Lay on Hands",0
+	_cs01: .byte "Segen",0
+	_cs02: .byte "leichte W. heilen",0
+	_cs03: .byte "leichte W. verurs",0
+	_cs04: .byte "Magie entdecken",0
+	_cs05: .byte "Schutz vor B",$7e,"sem",0
+	_cs06: .byte "St",$7d,"rkung",0
+	_cs07: .byte "Flammenklinge",0
+	_cs08: .byte "Person festhalten",0
+	_cs09: .byte "Gift verlangsamen",0
+	_cs0a: .byte "Nahrung erschaffen",0
+	_cs0b: .byte "Magie bannen",0
+	_cs0c: .byte "Schutzgewand",0
+	_cs0d: .byte "Gebet",0
+	_cs0e: .byte "L",$7d,"hmung aufheben",0
+	_cs0f: .byte "Schwere W. heilen",0
+	_cs10: .byte "Schwere W. verurs",0
+	_cs11: .byte "Gift neutralisie.",0
+	_cs12: .byte "Schutz v. B",$7e,"s. 3m",0
+	_cs13: .byte "Schutz v. Blitzen",0
+	_cs14: .byte "Krit. Wunden hei.",0
+	_cs15: .byte "Krit. Wunden veru",0
+	_cs16: .byte "Flammenschlag",0
+	_cs17: .byte "Tote erwecken",0
+	_cs18: .byte "H",$7d,"nde auflegen",0
 clericScrolls_lo: .byte <_cs00, <_cs01, <_cs02, <_cs03, <_cs04, <_cs05, <_cs06, <_cs07, <_cs08, <_cs09, <_cs0a, <_cs0b, <_cs0c, <_cs0d, <_cs0e, <_cs0f, <_cs10, <_cs11, <_cs12, <_cs13, <_cs14, <_cs15, <_cs16, <_cs17, <_cs18
 clericScrolls_hi: .byte >_cs00, >_cs01, >_cs02, >_cs03, >_cs04, >_cs05, >_cs06, >_cs07, >_cs08, >_cs09, >_cs0a, >_cs0b, >_cs0c, >_cs0d, >_cs0e, >_cs0f, >_cs10, >_cs11, >_cs12, >_cs13, >_cs14, >_cs15, >_cs16, >_cs17, >_cs18
 
@@ -1662,63 +1662,63 @@ clericScrolls_hi: .byte >_cs00, >_cs01, >_cs02, >_cs03, >_cs04, >_cs05, >_cs06, 
 	bpl :-
 	rts
 .endproc
-
+;13 chars - cast
 CLERICScrolls:
 	_CS00: .byte "             ";0
-	_CS01: .byte "Bless        ";1
-	_CS02: .byte "Cure Lt Wnds ";1
-	_CS03: .byte "Cause Lt Wnds";1
-	_CS04: .byte "Detect Magic ";1
-	_CS05: .byte "Protect Evil ";1
-	_CS06: .byte "Aid          ";2
-	_CS07: .byte "Flame Blade  ";2
-	_CS08: .byte "Hold Person  ";2
-	_CS09: .byte "Slow Poison  ";2
-	_CS0a: .byte "Create Food  ";3
-	_CS0b: .byte "Dispel Magic ";3
-	_CS0c: .byte "Magical Vest ";3
-	_CS0d: .byte "Prayer       ";3
-	_CS0e: .byte "Rem Paralysis";3
-	_CS0f: .byte "Cure Serious ";4
-	_CS10: .byte "Cause Serious";4
-	_CS11: .byte "Remove Poison";4
-	_CS12: .byte "Prt Evil Ten ";4
-	_CS13: .byte "Prt Lightning";4
-	_CS14: .byte "Cure Crit    ";5
-	_CS15: .byte "Cause Crit   ";5
-	_CS16: .byte "Flame Strike ";5
-	_CS17: .byte "Raise Dead   ";5
-	_CS18: .byte "Lay on Hands ";1
+	_CS01: .byte "Segen        ";1
+	_CS02: .byte "L.Wnd. heilen";1
+	_CS03: .byte "L.Wnd. verurs";1
+	_CS04: .byte "Magie entdeck";1
+	_CS05: .byte "Schutz v. Boe";1
+	_CS06: .byte "Staerkung    ";2
+	_CS07: .byte "Flammenklinge";2
+	_CS08: .byte "Person festha";2
+	_CS09: .byte "Gift verlangs";2
+	_CS0a: .byte "Nahrg. ersch.";3
+	_CS0b: .byte "Magie bannen ";3
+	_CS0c: .byte "Schutzgewand ";3
+	_CS0d: .byte "Gebet        ";3
+	_CS0e: .byte "Laehmung aufh";3
+	_CS0f: .byte "S.Wnd. heilen";4
+	_CS10: .byte "S.Wnd. verurs";4
+	_CS11: .byte "Gift neutral.";4
+	_CS12: .byte "S. v. Boes. 3";4
+	_CS13: .byte "S. v. Blitzen";4
+	_CS14: .byte "Krit.W.heilen";5
+	_CS15: .byte "Krit.W.verurs";5
+	_CS16: .byte "Flammenschlag";5
+	_CS17: .byte "Tote erwecken";5
+	_CS18: .byte "Haende aufleg";1
 CLERICScrolls_lo: .byte <_CS00, <_CS01, <_CS02, <_CS03, <_CS04, <_CS05, <_CS06, <_CS07, <_CS08, <_CS09, <_CS0a, <_CS0b, <_CS0c, <_CS0d, <_CS0e, <_CS0f, <_CS10, <_CS11, <_CS12, <_CS13, <_CS14, <_CS15, <_CS16, <_CS17, <_CS18
 CLERICScrolls_hi: .byte >_CS00, >_CS01, >_CS02, >_CS03, >_CS04, >_CS05, >_CS06, >_CS07, >_CS08, >_CS09, >_CS0a, >_CS0b, >_CS0c, >_CS0d, >_CS0e, >_CS0f, >_CS10, >_CS11, >_CS12, >_CS13, >_CS14, >_CS15, >_CS16, >_CS17, >_CS18
-
+; 17 chars - memorzie
 mageScrolls:
 	_ms00: .byte "",0
-	_ms01: .byte "Armor",0
-	_ms02: .byte "Burning Hands",0
-	_ms03: .byte "Detect Magic",0
-	_ms04: .byte "Magic Missile",0
-	_ms05: .byte "Read Magic",0
-	_ms06: .byte "Shield",0
-	_ms07: .byte "Shocking Grasp",0
-	_ms08: .byte "Invisibility",0
-	_ms09: .byte "Knock",0
-	_ms0a: .byte "M's Acid Arrow",0
-	_ms0b: .byte "Stinking Cloud",0
-	_ms0c: .byte "Dispel Magic",0
-	_ms0d: .byte "Fireball",0
-	_ms0e: .byte "Flame Arrow",0
-	_ms0f: .byte "Haste",0
-	_ms10: .byte "Hold Person",0
-	_ms11: .byte "Invisibility Ten'",0
-	_ms12: .byte "Lightning Bolt",0
-	_ms13: .byte "Vampiric Touch",0
-	_ms14: .byte "Fear",0
-	_ms15: .byte "Ice Storm",0
-	_ms16: .byte "Stoneskin",0
-	_ms17: .byte "Cloudkill",0
-	_ms18: .byte "Cone of Cold",0
-	_ms19: .byte "Hold Monster",0
+	_ms01: .byte "R",$7f,"stung",0
+	_ms02: .byte "Brennende Hände",0
+	_ms03: .byte "Magie entdecken",0
+	_ms04: .byte "Magisch.Geschoss",0
+	_ms05: .byte "Magie lesen",0
+	_ms06: .byte "Schild",0
+	_ms07: .byte "Schockgriff",0
+	_ms08: .byte "Unsichtbarkeit",0
+	_ms09: .byte "Klopfen",0
+	_ms0a: .byte "Ms S",$7d,"urepfeil",0
+	_ms0b: .byte "Stinkende Wolke",0
+	_ms0c: .byte "Magie bannen",0
+	_ms0d: .byte "Feuerball",0
+	_ms0e: .byte "Flammenpfeil",0
+	_ms0f: .byte "Hast",0
+	_ms10: .byte "Person festhalten",0
+	_ms11: .byte "Unsichtbarkeit 3m",0
+	_ms12: .byte "Blitzstrahl",0
+	_ms13: .byte "Vampirgriff",0
+	_ms14: .byte "Furcht",0
+	_ms15: .byte "Eissturm",0
+	_ms16: .byte "Steinhaut",0
+	_ms17: .byte "Todeswolke",0
+	_ms18: .byte "K",$7d,"ltekegel",0
+	_ms19: .byte "Monster festhlten",0
 mageScrolls_lo: .byte <_ms00, <_ms01, <_ms02, <_ms03, <_ms04, <_ms05, <_ms06, <_ms07, <_ms08, <_ms09, <_ms0a, <_ms0b, <_ms0c, <_ms0d, <_ms0e, <_ms0f, <_ms10, <_ms11, <_ms12, <_ms13, <_ms14, <_ms15, <_ms16, <_ms17, <_ms18, <_ms19
 mageScrolls_hi: .byte >_ms00, >_ms01, >_ms02, >_ms03, >_ms04, >_ms05, >_ms06, >_ms07, >_ms08, >_ms09, >_ms0a, >_ms0b, >_ms0c, >_ms0d, >_ms0e, >_ms0f, >_ms10, >_ms11, >_ms12, >_ms13, >_ms14, >_ms15, >_ms16, >_ms17, >_ms18, >_ms19
 
@@ -1805,58 +1805,58 @@ spellNames_hi:
 	bpl :-
 	rts
 .endproc
-
+; 13 chars - cast
 MAGEScrolls:
 	_MS00: .byte "             ";0
-	_MS01: .byte "Armor        ";1
-	_MS02: .byte "Burning Hands";1
-	_MS03: .byte "Detect Magic ";1
-	_MS04: .byte "Magic Missile";1
-	_MS05: .byte "Read Magic   ";1
-	_MS06: .byte "Shield       ";1
-	_MS07: .byte "Shocking Grsp";1
-	_MS08: .byte "Invisibility ";2
-	_MS09: .byte "Knock        ";2
-	_MS0a: .byte "Ms Acid Arrow";2
-	_MS0b: .byte "Stinky Cloud ";2
-	_MS0c: .byte "Dispel Magic ";3
-	_MS0d: .byte "Fireball     ";3
-	_MS0e: .byte "Flame Arrow  ";3
-	_MS0f: .byte "Haste        ";3
-	_MS10: .byte "Hold Person  ";3
-	_MS11: .byte "Invisible Ten";3
-	_MS12: .byte "Lightning Blt";3
-	_MS13: .byte "Vampire Touch";3
-	_MS14: .byte "Fear         ";4
-	_MS15: .byte "Ice Storm    ";4
-	_MS16: .byte "Stoneskin    ";4
-	_MS17: .byte "Cloudkill    ";5
-	_MS18: .byte "Cone of Cold ";5
-	_MS19: .byte "Hold Monster ";5
+	_MS01: .byte "Ruestung     ";1
+	_MS02: .byte "Brennende Ha.";1
+	_MS03: .byte "Magie entdeck";1
+	_MS04: .byte "Mag. Geschoss";1
+	_MS05: .byte "Magie lesen  ";1
+	_MS06: .byte "Schild       ";1
+	_MS07: .byte "Schockgriff  ";1
+	_MS08: .byte "Unsichtbark. ";2
+	_MS09: .byte "Klopfen      ";2
+	_MS0a: .byte "Ms Saeurepf. ";2
+	_MS0b: .byte "Stinkwolke   ";2
+	_MS0c: .byte "Magie bannen ";3
+	_MS0d: .byte "Feuerball    ";3
+	_MS0e: .byte "Flammenpfeil ";3
+	_MS0f: .byte "Hast         ";3
+	_MS10: .byte "Person festh.";3
+	_MS11: .byte "Unsichtbar 3m";3
+	_MS12: .byte "Blitzstrahl  ";3
+	_MS13: .byte "Vampirgriff  ";3
+	_MS14: .byte "Furcht       ";4
+	_MS15: .byte "Eissturm     ";4
+	_MS16: .byte "Steinhaut    ";4
+	_MS17: .byte "Todeswolke   ";5
+	_MS18: .byte "Kaeltekegel  ";5
+	_MS19: .byte "Monster festh";5
 MAGEScrolls_lo: .byte <_MS00, <_MS01, <_MS02, <_MS03, <_MS04, <_MS05, <_MS06, <_MS07, <_MS08, <_MS09, <_MS0a, <_MS0b, <_MS0c, <_MS0d, <_MS0e, <_MS0f, <_MS10, <_MS11, <_MS12, <_MS13, <_MS14, <_MS15, <_MS16, <_MS17, <_MS18, <_MS19
 MAGEScrolls_hi: .byte >_MS00, >_MS01, >_MS02, >_MS03, >_MS04, >_MS05, >_MS06, >_MS07, >_MS08, >_MS09, >_MS0a, >_MS0b, >_MS0c, >_MS0d, >_MS0e, >_MS0f, >_MS10, >_MS11, >_MS12, >_MS13, >_MS14, >_MS15, >_MS16, >_MS17, >_MS18, >_MS19
 
 potions:
 	_p0: .byte "",0
-	_p1: .byte "Giant Strength",0
-	_p2: .byte "Healing",0
-	_p3: .byte "Extra Healing",0
-	_p4: .byte "Poison",0
-	_p5: .byte "Vitality",0
-	_p6: .byte "Speed",0
-	_p7: .byte "Invisibility",0
-	_p8: .byte "Cure Poison",0
+	_p1: .byte "der Riesenkr",$7d,"fte",0
+	_p2: .byte "der Heilung",0
+	_p3: .byte "der Extra Heilung",0
+	_p4: .byte "des Giftes",0
+	_p5: .byte "der Vitalit",$7d,"t",0
+	_p6: .byte "der Schnelligkeit",0
+	_p7: .byte "der Unsichtbarkeit",0
+	_p8: .byte "der Gift-Heilung",0
 potions_lo: .byte <_p0, <_p1, <_p2, <_p3, <_p4, <_p5, <_p6, <_p7, <_p8
 potions_hi: .byte >_p0, >_p1, >_p2, >_p3, >_p4, >_p5, >_p6, >_p7, >_p8
 
 wands:
 	_w0: .byte "",0
-       	_w1: .byte "Lightning",0
-       	_w2: .byte "Frost",0
-       	_w3: .byte "Curing",0
-       	_w4: .byte "Fireball",0
-       	_w5: .byte "Silvias",0
-       	_w6: .byte "Magic Missile",0
+       	_w1: .byte "des Blitzes",0
+       	_w2: .byte "des Frostes",0
+       	_w3: .byte "der Heilung",0
+       	_w4: .byte "des Feuerballs",0
+       	_w5: .byte "von Silvias",0
+       	_w6: .byte "des magischen Geschosses",0
 wands_lo: .byte <_w0, <_w1, <_w2, <_w3, <_w4, <_w5, <_w6
 wands_hi: .byte >_w0, >_w1, >_w2, >_w3, >_w4, >_w5, >_w6
 .endproc

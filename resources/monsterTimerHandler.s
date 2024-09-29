@@ -637,8 +637,8 @@ noAttacks:
 						jsr text_writeNullString
 
 						jmp noStealing
-						her: .byte " has lost her ",0
-						his: .byte " has lost his ",0
+						her: .byte " verlor ihr   ",0
+						his: .byte " verlor sein  ",0
 						ret: .byte ".",$a,0
 				continue3:
 				cpy #(PartyMember::inventory+27*2)
@@ -705,8 +705,8 @@ noAttacks:
 	rts
 .pushseg
 .segment "GAMESTATE"
-	poisoned:.byte "poisoned",0
-	paralyzed:.byte "paralyzed",0
+	poisoned:.byte "vergifted",0
+	paralyzed:.byte "gel",125,"hmt",0
 .popseg
 
 monsterAttackTargetOrderIndexTable:
@@ -1113,9 +1113,9 @@ freeLineOfSight:
 		jmp break
 		.pushseg
 		.segment "GAMESTATE"
-		paralyzed:.byte "paralyzed",0
+		paralyzed:.byte "gel",125,"hmt",0
 		.popseg
-		mindBlast:.byte "The party is hit with a psychic mind blast!",$a,0
+		mindBlast:.byte "Das Team erlitt einen psychischen Gedankenschlag!",$a,0  
 	:
 	cmp #21
 	beq :+
@@ -1173,7 +1173,7 @@ freeLineOfSight:
 			cpx #6
 			beq break
 		jmp loop2
-		causeSerious: .byte " is hit by a cause serious wounds spell!",$a,0
+		causeSerious: .byte " wurde verzaubert und erlitt schweren Schaden",$a,0
 		monsterXanatharSpells: .byte 2,10,11
 		monsterXanatharSpellSounds: .byte 98, 83, 64
 

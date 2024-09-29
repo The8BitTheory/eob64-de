@@ -117,7 +117,7 @@ renderTextScreen = vic_bitmap+15*320
 		rts
 
 ;              0123456789012345678901234567890123456789
-str:	.byte "<-EXIT          Bestiary          NEXT->"
+str:	.byte "<-EXIT        Bestiarium          NEXT->"
 d800:	.res 16,$0
 		.res  8,$7
 		.res 16,$0
@@ -613,94 +613,94 @@ info_hi:
 name_xanath:
 .byte "Beholder",0
 info_xanath:
-.byte "Also known as Eye Tyrant or Sphere of Many Eyes, this solitary horror is most often found underground. Beholder have a globular body and move with an innate levitation. Atop the beholder's spherical body are ten eye-stalks, and in the center is a single large eye and a gaping maw adorned with several rows of razor-sharp teeth. Each of the eye-stalks has a unique magical ability - the beholder can cast a different spell with each. Fortunately, not all of the eyes can be brought to bear on a given target. Beholder are covered with hard, chitinous armor, making them relatively tough to hit in combat.",0
+.byte "Auch als Auge des Tyrannen oder Kugel der vielen Augen bekannt, ist dieses einsame Schreckenswesen oft unterirdisch anzutreffen. Beholder haben einen kugelf",$7e,"rmigen K",$7e,"rper und schweben aufgrund angeborener Levitation. Auf ihrem sph",$7d,"rischen K",$7e,"rper sitzen zehn Augenstiele, in der Mitte befindet sich ein gro",$7c,"es Auge, umrahmt von einem Maul mit mehreren Reihen scharfer Z",$7d,"hne. Jeder Augenstiel besitzt eine einzigartige magische F",$7d,"higkeit - der Beholder kann mit jedem Stiel einen anderen Zauber wirken. Zum Gl",$7f,"ck k",$7e,"nnen nicht alle Augen gleichzeitig auf ein Ziel gerichtet werden. Dank ihrer harten, chitinhaltigen Panzerung sind Beholder im Kampf schwer zu treffen.",0
 
 name_disbeast:
 .byte "Displacer Beast",0
 info_disbeast:
-.byte "The displacer beast resembled a blue-black puma with two powerful tentacles growing from its shoulders. The tentacles are tipped with sharp, horny protuberances that can punch through even steel armor. The beasts range in size from 8 to 12 feet in length and can reach upwards of 500 pounds. The beast's name described its most dangerous feature - an ability to ",$22,"displace",$22," its image up to three feet from its actual location. This makes the displacer beast very difficult to hit in combat.",0
+.byte "Das Displacer Beast ",$7d,"hnelte einem blauschwarzen Puma mit kr",$7d,"ftigen Tentakeln von den Schultern. Die Tentakel endeten in scharfen hornartigen Spitzen, die sogar Stahlr",$7f,"stungen durchdringen konnten. Sie waren 8 bis 12 Fu",$7c," lang und wogen ",$7f,"ber 500 Pfund. Sein gef",$7d,"hrlichstes Merkmal war die ",$22,"F",$7d,"higkeit",$22," sein Abbild bis zu drei Fu",$7c," von seiner tats",$7d,"chlichen Position zu verschieben, was es im Kampf ",$7d,"u",$7c,"erst schwer zu treffen machte.",0
 
 name_drider:
 .byte "Drider",0
 info_drider:
-.byte "This strange creature has the head and torso of a drow and the lower body of a giant spider. When drow of exceptional ability reach the sixth-level, they are subjected to a test by the drow's dark goddess. Those who pass the test are elevated to special services. Those who fail are transformed into driders and cast out of drow society. Driders can generally cast spells as well as fight with weapons.",0
+.byte "Diese merkw",$7f,"rdige Kreatur hat den Kopf und Oberk",$7e,"rper eines Dunkelelfen und den unteren K",$7e,"rper einer riesigen Spinne. Begabte Dunkelelfen, die das sechste Level erreichen, werden von der dunklen G",$7e,"ttin der Drow einem Test unterzogen. Wer besteht, wird speziellen Aufgaben zugewiesen. Diejenigen, die versagen, verwandeln sich in Driders und werden aus der Drow-Gesellschaft versto",$7c,"en. Driders k",$7e,"nnen in der Regel zaubern und mit Waffen k",$7d,"mpfen.",0
 
 name_drowelf:
 .byte "Drow",0
 info_drowelf:
-.byte "In their long past history, the drow were part of the elf community that still roams the world's forests. Something turned these elves evil, and drove them from the sunlight into their present subterranean caves and cities. Drow are shorter and more lightly built than men. They have black skin and pale, usually white hair. All drow can cast some magic spells, and they often carry swords of adamite alloy.",0
+.byte "In ihrer langen Geschichte waren die Drow einst Teil der Elfen-Gemeinschaft, doch etwas wandelte sie ins B",$7e,"se und trieb sie aus dem Sonnenlicht in unterirdische H",$7e,"hlen und St",$7d,"dte. Drow sind kleiner und zierlicher als Menschen, mit schwarzer Haut und meist wei",$7c,"em Haar. Alle Drow k",$7e,"nnen Magie wirken und tragen oft Schwerter aus Adamitlegierung.",0
 
 name_dwarf:
-.byte "Drawf",0
+.byte "Zwerg",0
 info_dwarf:
-.byte "These stocky demi-humans stand between 4 and 4 1/2 feet tall and weigh between 130 and 170 pounds. Dwarves are very tough warriors, and are resistant to both venomous and magical attacks.",0
+.byte "Diese gedrungenen Halbmenschen sind zwischen 4 und 4 1/2 Fu",$7c," gro",$7c," und wiegen zwischen 130 und 170 Pfund. Zwerge sind ",$7d,"u",$7c,"erst robuste Krieger und widerstandsf",$7d,"hig gegen",$7f,"ber sowohl giftigen als auch magischen Angriffen.",0
 
 name_flind:
 .byte "Flind",0
 info_flind:
-.byte "This humanoid creature vaguely resembles a heavily muscled human with a canine head. Flind are of average intelligence, and can be found above ground and in caverns.",0
+.byte "Diese humanoiden Kreaturen ",$7d,"hneln vage einem stark muskul",$7e,"sen Menschen mit einem hunde",$7d,"hnlichen Kopf. Flind besitzen eine durchschnittliche Intelligenz und k",$7e,"nnen sowohl ",$7f,"berirdisch als auch in H",$7e,"hlen gefunden werden.",0
 
 name_golem:
 .byte "Golem",0
 info_golem:
-.byte "A golem is an artificial creature animated by an elemental spirit. The process of creating a golem begins with the creation of a body made of stone, iron, clay, or even flesh. After the body has been assembled, the creator must undergo a lengthy ritual to bind the elemental to the body, and subordinate its will to the new master. The ritual is a closely guarded secret of a handful of powerful wizards. Golems are utterly fearless, and battle with single-minded determination.",0
+.byte "Ein Golem ist eine k",$7f,"nstliche Kreatur, die durch einen elementaren Geist zum Leben erweckt wird. Dazu wird ein K",$7e,"rper aus Stein, Eisen, Ton oder Fleisch erschaffen. Der Sch",$7e,"pfer bindet den Geist an den K",$7e,"rper und unterwirft seinen Willen in einem geheimen Ritual das nur wenige m",$7d,"chtige Zauberer kennen. Golems sind furchtlos und k",$7d,"mpfen entschlossen.",0
 
 name_hellhnd:
 .byte "Hell Hound",0
 info_hellhnd:
-.byte "The hell hound is a very large, rust-red or brown beast with burning red eyes. The beast's markings, teeth, and tongue are soot-black. The baying of a hell hound has been described as ",$22,"eerie",$22,", ",$22,"hollow",$22,", and ",$22,"disturbing",$22,". The beast attacks with flaming breath and piercing teeth.",0
+.byte "Der Hell Hound ist ein sehr gro",$7c,"es, rostrot oder braun gef",$7d,"rbtes Tier mit brennend roten Augen. Die Markierungen, Z",$7d,"hne und die Zunge des Tieres sind ru",$7c,"schwarz. Das Bellen eines H",$7e,"llenhunds wurde als ",$22,"unheimlich",$22,", ",$22,"hohl",$22,", und ",$22,"verst",$7e,"rend",$22," beschrieben. Das Tier greift mit Flammenatem und durchdringenden Z",$7d,"hnen an.",0
 
 name_kenku:
 .byte "Kenku",0
 info_kenku:
-.byte "These beings resembled humanoid hawks, with both arms and wings. Their height ranges from five to seven feet, their feathers are predominantly brown with white under-feathers, and their eyes are brilliant yellow. Kenku all have natural thieving abilities, and take perverse pleasure in annoying and inconveniencing human and demi-human races.",0
+.byte "Diese Wesen sehen aus wie menschen",$7d,"hnliche Falken mit Armen und Fl",$7f,"geln. Sie sind zwischen f",$7f,"nf und sieben Fu",$7c," gro",$7c,", haben haupts",$7d,"chlich braune Federn mit wei",$7c,"en Unterfedern und leuchtend gelbe Augen. Kenku besitzen nat",$7f,"rliche Diebesf",$7d,"higkeiten und am",$7f,"sieren sich daran, menschliche und halbmenschliche Rassen zu ",$7d,"rgern und zu st",$7e,"ren.",0
 
 name_kobold:
 .byte "Kobold",0
 info_kobold:
-.byte "Well known for cowardice and a wide sadistic streak, kobolds are usually only dangerous in large groups. Kobolds stand about three feet tall, and their dark rust hides are somewhat scaly. The smell of a kobold has been described as ",$22,"a cross between a wet dog and a swamp",$22,". They have an ancestral hatred for gnomes, and attack them on sight. Kobolds generally prefer to attach other opponents en masse, or from a distance.",0
+.byte "Kobolde sind bekannt f",$7f,"r ihre Feigheit und sadistischen Neigungen. Sie sind meist nur in gro",$7c,"en Gruppen gef",$7d,"hrlich. Etwa drei Fu",$7c," gro",$7c,", mit dunkler, leicht schuppiger Haut, die nach einen",$22,"Mix aus nassem Hund und Sumpf riecht",$22,". Sie hassen Gnome und attackieren sie sofort. Kobolde bevorzugen Massenangriffe oder Distanzk",$7d,"mpfe.",0
 
 name_kuotoa:
 .byte "Kuo-Toa",0
 info_kuotoa:
-.byte "This in an ancient race of fish-men that now dwell in subterranean caverns. The kuo-toa harbor an age-old hatred for surface dwellers and their sunlit world. These creatures have a vaguely human body, topped with a wide-mouthed fish head. They have short legs and long, three-fingered hands. Kuo-toa wear no clothing, only a leather harness for their weapons and few belongings.",0
+.byte "Eine uralte Rasse von Fischmenschen, die nun in unterirdischen H",$7e,"hlen leben. Kuo-toa hegen einen tiefen Hass gegen",$7f,"ber Oberfl",$7d,"chenbewohnern. Ihr K",$7e,"rper ",$7d,"hnelt grob dem eines Menschen, gekr",$7e,"nt von einem fisch",$7d,"hnlichen Kopf mit weitem Mund. Sie haben kurze Beine, lange dreifingerige H",$7d,"nde und tragen lediglich einen Lederharnisch f",$7f,"r Waffen und wenige Gegenst",$7d,"nde.",0
 
 name_leech:
-.byte "Leech, Giant",0
+.byte "Riesen-Blutegel",0
 info_leech:
-.byte "This is a slimy, slug-like parasite that feeds on its victim's bodily fluids. Leeches wait in the mud, sludge, and slime of swamps and sewers for unsuspecting prey. The giant leech rears up from the ooze when it detects the presence of a living creature, and attempts to subdue its prey.",0
+.byte "Ein schmieriger, schneckengleicher Parasit, der sich von den K",$7e,"rperfl",$7f,"ssigkeiten seiner Opfer ern",$7d,"hrt. Blutegel lauern im Schlamm, Schlamm und Schleim von S",$7f,"mpfen und Abwasserkan",$7d,"len auf nichtsahnende Beute. Der Riesen-Blutegel erhebt sich aus dem Schlamm, wenn er die Anwesenheit eines lebenden Wesens bemerkt, und versucht, seine Beute zu ",$7f,"berw",$7d,"ltigen.",0
 
 name_mantis:
-.byte "Mantis Warrior",0
+.byte "Mantis Krieger",0
 info_mantis:
-.byte "Also called Thri-Kreen, this is a carnivorous insect man. A mantis warrior resembled a man-sized preying mantis. Mantis warriors are often armed with a peculiar viciously bladed polearm. The name for this weapon has never been translated into the Common tongue, but the ferocious reputation of the deadly thing, and the warriors who wield it, has spread far.",0
+.byte "Auch Thri-Kreen genannt, ist dies ein fleischfressender Insektenmensch. Ein Mantis-Krieger ",$7d,"hnelt einer humanoiden Gottesanbeterin in mannsgro",$7c,"er Form. Sie tragen oft eine eigenartige, b",$7e,"sartig geklingelte Stangenwaffe. Der Name dieser Waffe wurde nie ins Gemeine ",$7f,"bersetzt, aber der gef",$7f,"rchtete Ruf der t",$7e,"dlichen Waffe und der Krieger, die sie f",$7f,"hren, hat sich weit verbreitet.",0
 
 name_mflayer:
-.byte "Mind Flayer",0
+.byte "Gehirnfresser",0
 info_mflayer:
-.byte "Also called Illithid, this is one of the most feared of the subterranean dwellers. Mind flayers feed on the very minds of sentient beings. Mind flasyers are a slime mauve color, stand about six feet tall, and adorn themselves with flowing robes decorated with images of suffering, death, and despair. Their faces resembles octopi with two large, white, pupilless eyes.",0
+.byte "Auch Illithid genannt, sind sie unterirdische Bewohner und ",$7d,"u",$7c,"erst gef",$7f,"rchtet. Gehirnfresser ern",$7d,"hren sich von den Gedanken bewusster Wesen. Sie haben mauvefarbene Haut, sind etwa sechs Fu",$7c," gro",$7c," und tragen Gew",$7d,"nder mit Bildern von Leid und Verzweiflung. Ihre Gesichter ",$7d,"hneln Tintenfischen mit gro",$7c,"en, wei",$7c,"en, pupillenlosen Augen.",0
 
 name_rust:
-.byte "Rust Monster",0
+.byte "Rostmonster",0
 info_rust:
-.byte "This is a subterranean creature with an appetite for metals of all kinds. Rust monsters are about five feet in length, and have a long, armored tail and two prehensile antennae. The tail is tipped with a strange paddle-like appendage. The creature is normally placid and inoffensive - until it smells metal. Whenever the creature detects the scent of food (armor, weapons, and the like) it charges. Whenever the monster hits metal with its antennae, the metal corrodes and ",$22,"feeds",$22," the creature. Even magical weapons can be susceptible to the rust monster's attack.",0
+.byte "Diese unterirdische Kreatur hat Appetit auf Metalle aller Art. Rostmonster sind etwa f",$7f,"nf Fu",$7c," lang, mit einem gepanzerten Schwanz und zwei greifbaren F",$7f,"hlern. Normalerweise sind sie friedlich, bis sie den Geruch von Metall wahrnehmen. Dann st",$7f,"rmen sie los und korrodieren das Metall mit ihren F",$7f,"hlern, um sich zu ",$22,"ern",$7d,"hren",$22," - selbst magische Waffen sind vor ihnen nicht sicher.",0
 
 name_skeleton:
-.byte "Skeleton",0
+.byte "Skelett",0
 info_skeleton:
-.byte "This is a magically animated body, created and controlled by a powerful evil wizard or priest. Skeletons are one of the lesser undead monsters, though powerful skeletons have been created from the bodies of powerful warriors. Because they have no intelligence or will, skeletons are immune to spells such as Sleep, Charm, and Hold. They are also utterly fearless, and never retreat from a fight.",0
+.byte "Ein magisch belebter K",$7e,"rper, kontrolliert von b",$7e,"sen Zauberern oder Priestern. Skelette sind niedere Untote und mangelnder Intelligenz. Sie sind immun gegen Schlaf, Verzauberung und Festhalten. Skelette sind furchtlos und weichen niemals im Kampf zur",$7f,"ck.",0
 
 name_spider:
-.byte "Spider, Giant",0
+.byte "Riesenspinne",0
 info_spider:
-.byte "This predator haunts many regions and helps to keep down the level of pests such as kobolds and adventurers. Giant spiders weave webs for unwary victims, and attack with venomous bites.",0
+.byte "Dieser Raubtier durchstreift viele Regionen und hilft dabei, den Bestand an Sch",$7d,"dlingen wie Kobolden und Abenteurern zu reduzieren. Riesenspinnen weben Netze f",$7f,"r ahnungslose Opfer und greifen mit giftigen Bissen an.",0
 
 name_xorn:
 .byte "Xorn",0
 info_xorn:
-.byte "This creature is a native to the elemental plane of Earth, and feeds on previous metal deep underground. The wide body of a xorn is made of a pebbly material, and its mouth is located at the top of its head. Three talon-clawed arms are positioned symmetrically around its body. In the few reported cases of xorn attacks, the creatures seem to have been attracted by jewels or precious metals, rather than malice.",0
+.byte "Diese Kreatur stammt aus der Elementarebene der Erde und ern",$7d,"hrt sich von wertvollem Metall unter der Erde. Ein Xorn hat einen breiten, kieselartigen K",$7e,"rper mit einem Mund oben auf dem Kopf. Drei klauengekr",$7e,"nte Arme sind symmetrisch um den K",$7e,"rper angeordnet. Xorn scheinen von Edelsteinen oder wertvollem Metall angezogen zu werden, eher aus Interesse als aus Boshaftigkeit, wie in wenigen berichteten Angriffsf",$7d,"llen.",0
 
 name_zombie:
 .byte "Zombie",0
 info_zombie:
-.byte "Like skeletons, zombies are undead creatures that are animated and controlled by powerful wizards or priests. The animation ritual does not alter the conditions of the zombie's body, so most are in sever states of decay, often missing patches of skin and hair, and occasionally whole limbs. Zombies are very slow and clumsy, but they fight with determination and persistence.",0
+.byte "Wie Skelette sind Zombies untote Kreaturen, belebt und kontrolliert von m",$7d,"chtigen Zauberern oder Priestern. Die Belebung ver",$7d,"ndert ihren verwesenden Zustand nicht, weshalb sie oft verfallen aussehen, mit fehlender Haut, Haar und sogar Gliedma",$7c,"en. Zombies sind langsam und unbeholfen, k",$7d,"mpfen jedoch entschlossen.",0

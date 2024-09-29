@@ -54,7 +54,7 @@ noDeathAnim:
 
 msg:
 		.byte "Gratulation zur Vollendung aller 12",$a,"Beholder Boni.",$a,$a
-		.byte "Die Namen der Gef",$7d,"hrten, die",$a,"diese Tat vollbracht haben, sind:"
+		.byte "Die Namen der Helden, die",$a,"das vollbracht haben, sind:"
 		.byte 0
 pwd:
 		.byte "Passwort: ",0

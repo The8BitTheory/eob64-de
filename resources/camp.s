@@ -114,33 +114,33 @@ exitTxt:	  .byte " Exit",0
 		defineMenu
 		rts
 
-menu:		button  0, 1, 18, 5, restPartyTxt
-		button 20, 1, 18, 2, prayForSpellsTxt
-		button  0, 4, 18, 2, memorizeSpellsTxt
+menu:		button  0, 1, 18, 6, restPartyTxt
+		button 20, 1, 18, 13, prayForSpellsTxt
+		button  0, 4, 18, 10, memorizeSpellsTxt
 		button 20, 4, 18, 3, scribeScrollsTxt
-		button  0, 7, 18, 3, dropCharacterTxt
-		button 20, 7, 10, 4, gameOptionsTxt
+		button  0, 7, 18, 2, dropCharacterTxt
+		button 20, 7, 10, 2, gameOptionsTxt
 		button 32, 7,  6, 2, exitTxt
 		.byte 0
 		.byte 18,"Camp",0
 
-cr:		clickregion  0,1,20,3, topMenuHandler, $12,$ff,$00, 0 ;rest
-		clickregion 20,1,20,3, topMenuHandler, $10,$ff,$00, 1 ;pray
-		clickregion  0,4,20,3, topMenuHandler, $0d,$ff,$00, 2 ;memo
+cr:		clickregion  0,1,20,3, topMenuHandler, $01,$ff,$00, 0 ;rest
+		clickregion 20,1,20,3, topMenuHandler, $02,$ff,$00, 1 ;pray
+		clickregion  0,4,20,3, topMenuHandler, $0c,$ff,$00, 2 ;memo
 		clickregion 20,4,20,3, topMenuHandler, $13,$ff,$00, 3 ;scri
-		clickregion  0,7,20,3, topMenuHandler, $04,$ff,$00, 4 ;drop
-		clickregion 20,7,12,3, topMenuHandler, $07,$ff,$00, 5 ;game
+		clickregion  0,7,20,3, topMenuHandler, $03,$ff,$00, 4 ;drop
+		clickregion 20,7,12,3, topMenuHandler, $0f,$ff,$00, 5 ;game
 		clickregion 32,7, 8,3, topMenuHandler, $05,$ff,$00, 6 ;exit
 		clickregion 32,7, 8,3, topMenuHandler, $1f,$ff,$00, 6 ;exit
 		clickregion 32,7, 8,3, topMenuHandler, $00,$00,$80, 6 ;exit
 		.word 0
 
-restPartyTxt: 	  .byte "    Rest Party",0
-memorizeSpellsTxt:.byte " Memorize Spells",0
-prayForSpellsTxt: .byte " Pray for Spells",0
-scribeScrollsTxt: .byte "  Scribe Scrolls",0
-dropCharacterTxt: .byte "  Drop Character",0
-gameOptionsTxt:	  .byte "   Game",0
+restPartyTxt: 	  .byte "     Ausruhen",0
+memorizeSpellsTxt:.byte "  Zauber lernen",0
+prayForSpellsTxt: .byte " F",127,"r Zauber beten",0
+scribeScrollsTxt: .byte "  Schriftrollen",0
+dropCharacterTxt: .byte " Charakter entl.",0
+gameOptionsTxt:	  .byte " Optionen",0
 .endproc
 
 .proc topMenuHandler
@@ -155,7 +155,7 @@ gameOptionsTxt:	  .byte "   Game",0
 			lda #IS_CLERIC
 			jsr showSelectCharMenu
 			bcs :+
-				notify "You don't have any Cleric able to",$a,"pray in your party."
+				notify "Das Team hat keinen Kleriker, der",$a,"beten k",126,"nnte."
 				jmp showTopMenu
 			:
 			rts
@@ -167,7 +167,7 @@ gameOptionsTxt:	  .byte "   Game",0
 			lda #IS_MAGE
 			jsr showSelectCharMenu
 			bcs :+
-				notify "You don't have any Mage able to",$a,"learn spells."
+				notify "Das Team hat keinen Magier, der",$a,"Zaubern k",126,"nnte."
 				jmp showTopMenu
 			:
 			rts
@@ -198,7 +198,7 @@ gameOptionsTxt:	  .byte "   Game",0
 		bne :++
 			lda needRest
 			beq :+
-				notify "Your party needs to rest to gain",$a,"spells."
+				notify "Euer Team muss ausruhen, um",$a,"Zauber zu lernen."
 			:
 
 exit:		lda #0
@@ -207,7 +207,7 @@ exit:		lda #0
 			rts
 		:
 		rts
-noLess: .byte "You cannot have less than four",$a,"characters.",0
+noLess: .byte "Sie m",127,"ssen mindestens vier",$a,"Charaktere besitzen.",0
 .endproc
 
 
@@ -397,6 +397,7 @@ noLess: .byte "You cannot have less than four",$a,"characters.",0
 menu:		button 32, 7,  6, 2, exitTxt
 		.byte 0
 		.byte 11,"Select a character",0
+		.byte 11,"Charakter ausw",125,"hlen",0
 
 cr:		clickregion 32,7, 8, 3,  back, 		$05,$ff,$00, 0
 		clickregion 32,7, 8, 3,  back, 		$1f,$ff,$00, 0
@@ -456,15 +457,15 @@ keyChar:	tay
 			jsr getSelectedClass
 			cmp #CLASS_MAGE
 			bne :+
-				notify "An unconscious or dead Mage",$a,"cannot memorize spells."
+				notify "Ein bewusstloser oder toter",$a,"Magier kann keine Zauber lernen."
 			:
 			cmp #CLASS_CLERIC
 			bne :+
-				notify "An unconscious or dead Cleric",$a,"cannot memorize spells."
+				notify "Ein bewusstloser oder toter",$a,"Kleriker kann keine Zauber lernen."
 			:
 			cmp #CLASS_PALADIN
 			bne :+
-				notify "An unconscious or dead Paladin",$a,"cannot memorize spells."
+				notify "Ein bewusstloser oder toter",$a,"Paladin kann keine Zauber lernen."
 			:
 			jmp showTopMenu
 		:
@@ -474,7 +475,7 @@ keyChar:	tay
 		bne :++
 			jsr hasHolySymbol
 			bne :+
-				notify "The Mage has no Spell Book!"
+				notify "Der Magier hat kein Zauberbuch!"
 				jmp showTopMenu
 			:
 			jmp :++
@@ -485,7 +486,7 @@ keyChar:	tay
 			lda (CURRENT_PARTYMEMBER),y
 			cmp #9
 			bcs :+
-				notify "Your Paladin is too low a level for",$a,"spells."
+				notify "Der Paladin ist noch zu unerfahren."
 				jmp showTopMenu
 		:
 
@@ -542,14 +543,14 @@ menu:	button 25,1,1,1,page1Txt
 		button 25,7,5,1,clearTxt
 		button 32,7,6,2,exitTxt
 		.byte 0
-		.byte 9,"Spells Available",0,0
+		.byte 9,"Verf",127,"gbare Zauber",0,0
 
 page1Txt:	.byte "1",0
 page2Txt:	.byte "2",0
 page3Txt:	.byte "3",0
 page4Txt:	.byte "4",0
 page5Txt:	.byte "5",0
-clearTxt:	.byte "Clear",0
+clearTxt:	.byte "L",126,"sch",0
 
 		;X,Y, Width,Height, Callback, Keychar,KeyMod, Param
 cr:		clickregion 32,7,  8,3, back,        $05,$ff,$00, 0
@@ -822,7 +823,7 @@ cr:		clickregion 32,7,  8,3, back,        $05,$ff,$00, 0
 			inx
 		jmp :--
 
-remaining:	.byte "  of   Left",0
+remaining:	.byte "  von  ",127,"brig",0
 mul3:		.byte 0,3,6,9,12
 .endproc
 
@@ -1238,7 +1239,7 @@ load:	jsrf io_readDirectory
 		ldy #>showGameOptions
 		jmp showFilePicker
 
-noSavesFound: .byte "NO SAVEGAMES FOUND.",0
+noSavesFound: .byte "KEINE SPIELST",93,"NDE GEFUNDEN.",0
 
 save:	jsrf io_save
 		cpx #0
@@ -1278,13 +1279,13 @@ device:	inc preferredDevice
 		rts
 
 menu:	button  0, 1, 18, 2, flashLoadTxt
-		button 20, 1, 18, 2, flashSaveTxt
+		button 20, 1, 18, 1, flashSaveTxt
 		button  0, 4, 18, 2, diskLoadTxt
-		button 20, 4, 18, 2, diskSaveTxt
+		button 20, 4, 18, 1, diskSaveTxt
 		button  0, 7, 18, 2, deviceTxt
 		button 32, 7,  6, 2, exitTxt
 		.byte 0
-		.byte 14,"Game Options",0
+		.byte 14,"Spieloptionen",0
 
 cr:		clickregion  0,1,20,3, flashLoad,	$31,$ff,$00, 0
 		clickregion 20,1,20,3, flashSave,  	$32,$ff,$00, 0
@@ -1296,10 +1297,10 @@ cr:		clickregion  0,1,20,3, flashLoad,	$31,$ff,$00, 0
 		clickregion 32,7, 8,3, back, 		$00,$00,$80, 0
 		.word 0
 
-flashLoadTxt: 	 .byte " 1 Flash Load",0
-flashSaveTxt:    .byte " 2 Flash Save",0
-diskLoadTxt:     .byte " 3 Disk Load",0
-diskSaveTxt:     .byte " 4 Disk Save",0
+flashLoadTxt: 	 .byte " 1 Von Flash laden",0
+flashSaveTxt:    .byte "2 In Flash sichern",0
+diskLoadTxt:     .byte " 3 Von Disk laden",0
+diskSaveTxt:     .byte "4 Auf Disk sichern",0
 deviceTxt:		 .byte " Dev: 08 09 10 11",0
 deviceOffsets:	 .byte 7,10,13,16
 
@@ -1356,7 +1357,7 @@ menu:	button  0, 1, 18, 2, flashLoadTxt
 		button  0, 7, 18, 2, deviceTxt
 		button 32, 7,  6, 2, exitTxt
 		.byte 0
-		.byte 14,"Game Options",0
+		.byte 14,"Spieloptionen",0
 
 cr:		clickregion  0,1,20,3, flashLoad,					$31,$ff,$00, 0
 		clickregion 20,1,20,3, load, 	 					$32,$ff,$00, 0
@@ -1366,8 +1367,8 @@ cr:		clickregion  0,1,20,3, flashLoad,					$31,$ff,$00, 0
 		clickregion 32,7, 8,3, back, 						$00,$00,$80, 0
 		.word 0
 
-flashLoadTxt: 	 .byte " 1 Flash Load",0
-diskLoadTxt:     .byte " 2 Disk Load",0
+flashLoadTxt: 	 .byte " 1 Von Flash laden",0
+diskLoadTxt:     .byte " 2 Von Disk laden",0
 deviceTxt:		 .byte " Dev: 08 09 10 11",0
 deviceOffsets:	 .byte 7,10,13,16
 
@@ -1712,7 +1713,7 @@ menu:	button  0, 1, 1, 1, upTxt
 		button  0, 7, 1, 1, downTxt
 		button 32, 7, 6, 2, exitTxt
 		.byte 0
-		.byte 8,"Select savegame to load",0
+		.byte 8,"Welchen Spielstand laden?",0
 
 cr:		clickregion  32,  7, 8, 3, backMenu,$05,$ff,$00, 0
 		clickregion  32,  7, 8, 3, backMenu,$1f,$ff,$00, 0
@@ -2104,7 +2105,7 @@ parseASCII:
 
 		lda numScrolls
 		bne :+
-			notify "You don't have any scrolls to be",$a,"scribed."
+			notify "Es gibt keine Schriftrollen zum",$a,"notieren."
 			jmp showTopMenu
 		:
 
@@ -2114,7 +2115,7 @@ parseASCII:
 		lda #IS_MAGE
 		jsr showSelectCharMenu
 		bcs :+
-			notify "You don't have any mage able to",$a,"learn spells."
+			notify "Es gibt keinen Magier der Zauber",$a,"lernen kann."
 			jmp showTopMenu
 		:
 		rts
@@ -2124,7 +2125,7 @@ charSelected:	jsr populateUnknownSpells
 		jsr drawSelectedCharName
 		lda nbrMenuItems
 		bne :+
-			notify "You don't have any scrolls that this",$a,"mage needs."
+			notify "Es gibt keine Schriftrollen f",127,"r",$a,"diesen Magier."
 			jmp showTopMenu
 		:
 
@@ -2257,7 +2258,7 @@ keySpell:	tay
 
 menu:		button 32, 7,  6, 2, exitTxt
 		.byte 0
-		.byte 1,"Scribe Scrolls",0
+		.byte 1,"Schriftrollen",0
 
 cr:		clickregion 32,7, 8,3,   back, 		$05,$ff,$00, 5
 		clickregion 32,7, 8,3,   back,		$1f,$ff,$00, 5
@@ -2333,7 +2334,7 @@ back:		jmp showTopMenu
 				ldy #NOT_POISONED
 				jsr getMemberStatus
 				bcs :++
-					confirm "Poisoned party members will die!",$a,"Rest anyway?"
+					confirm "Vergiftete Mitglieder werden sterben!",$a,"Trotzdem ausruhen?"
 					cmp #1
 					beq :+
 						jmp showTopMenu
@@ -2398,7 +2399,7 @@ back:		jmp showTopMenu
 				jsr checkHealSpells
 				bcc continue
 					pla
-					confirm "Will your healers heal the party?"
+					confirm "Sollen die Heiler das Team heilen?"
 					sta useHealers
 					redrawMenu
 					jsr showText
@@ -2520,7 +2521,7 @@ showText:	ldx #1
 			bne notEverySix
 				jsr hourTick
 				bcc :++
-					confirm "Your party is starving.",$a,"Do you wish to continue resting?"
+					confirm "Euer Team verhungert.",$a,"Wollt ihr weiter ausruhen?"
 					cmp #0
 					bne :+
 						jmp abortRest
@@ -2551,7 +2552,7 @@ showText:	ldx #1
 					jsr checkSpellsToLearn
 					bcs :+
 						inc haveAskedToContinue
-						confirm "Someone is still injured.",$a,"Rest until healed?"
+						confirm "Noch ist jemand verletzt.",$a,"Bis zur Heilung ausruhen?"
 						cmp #0
 						beq abortRest
 						redrawMenu
@@ -2576,7 +2577,7 @@ showText:	ldx #1
 
 		lda injured
 		bpl :+
-			notify "All characters are fully rested."
+			notify "Alle Mitglieder sind v",126,"llig erholt."
 		:
 
 abortRest:
@@ -2602,11 +2603,11 @@ abortRest:
 waitForStarveConfirm:
 
 
-restingParty:	.byte "Resting party.",$a,$a,0
-hoursRested:	.byte "Hours rested:",0
+restingParty:	.byte "Team ruht.",$a,$a,0
+hoursRested:	.byte "Stunden geruht:",0
 
 menu:		.byte 0
-		.byte 18,"Rest",0
+		.byte 18,"Ausruhen",0
 cr:		.word 0
 
 
@@ -3083,7 +3084,7 @@ false:		clc
 				rts
 			:
 		jmp nextMember
-castsTxt: .byte " casts healing on ",0
+castsTxt: .byte " spricht Heilung auf ",0
 .endproc
 
 .proc regenerateSpells
@@ -3224,8 +3225,8 @@ printStatus:	php
 		jsr text_writeNullString3
 		rts
 
-gainedText:	.byte " gained ",0
-memorizedText:	.byte " memorized ",0
+gainedText:	.byte " erh",125,"lt ",0
+memorizedText:	.byte " lernt ",0
 
 mageSpellsPauseTable:
 		.repeat 30,I
@@ -3399,7 +3400,7 @@ true:		sec
 					cmp #2
 					bcs :+
 						pla
-						notify "You can't rest here, monsters are",$a,"near."
+						notify "Rast ist nicht m",126,"glich,",$a,"Monster sind nahe."
 						jmp returnTrue
 				:
 				iny
@@ -3579,9 +3580,9 @@ f1txt:	.byte "F1: ",0
 mouseTypes_lo: .byte <m0,<m1,<m2
 mouseTypes_hi: .byte >m0,>m1,>m2
 
-m0:		.byte "1351 (Acc)   ",0
-m1:		.byte "1351 (No Acc)",0
-m2:		.byte "None         ",0
+m0:		.byte "1351 (Beschl)",0
+m1:		.byte "1351 (KeineB)",0
+m2:		.byte "Keiner       ",0
 
 systemTypes_lo: .byte <t0,<t1,<t2,<t3
 systemTypes_hi: .byte >t0,>t1,>t2,>t3
@@ -3599,22 +3600,22 @@ s1:		.byte "/8580",0
 
 version:.byte "v",VERSION,0
 
-menu:	button  8, 2, 23, 2, loadTxt
+menu:	button  8, 2, 23, 5, loadTxt
 		button  8, 4, 23, 4, startTxt
-		button  8, 5, 23, 5, quickStartTxt
+		button  8, 5, 23, 8, quickStartTxt
 		button  8, 6, 23, 7, watchIntroTxt
 		.byte 0
 
-cr:		clickregion 9,3,24,1, handler, $0c,$ff,$00, 0
-		clickregion 9,5,24,1, handler, $13,$ff,$00, 1
-		clickregion 9,6,24,1, handler, $11,$ff,$00, 2
-		clickregion 9,7,24,1, handler, $17,$ff,$00, 3
+cr:		clickregion 9,3,24,1, handler, $01,$ff,$00, 0
+		clickregion 9,5,24,1, handler, $0E,$ff,$00, 1
+		clickregion 9,6,24,1, handler, $13,$ff,$00, 2
+		clickregion 9,7,24,1, handler, $09,$ff,$00, 3
 		.word 0
 
-loadTxt: 	  	.byte " Load game in progress",0
-startTxt:		.byte "   Start a new party  ",0
-quickStartTxt:	.byte "    Quickstart game   ",0
-watchIntroTxt:	.byte "      Watch intro     ",0
+loadTxt: 	  	.byte "    Altes Spiel laden ",0
+startTxt:		.byte "   Neues Team aufbauen",0
+quickStartTxt:	.byte "       Schnellstart   ",0
+watchIntroTxt:	.byte "      Intro ansehen   ",0
 
 handler:
 		cmp #0
@@ -4158,8 +4159,8 @@ cr:		clickregion  1,6,7,3, select, $19,$ff,$00, 1
 		clickregion 33,6,6,3, select, $0e,$ff,$00, 0
 		.word 0
 
-yesTxt:		.byte " Yes",0
-noTxt:		.byte " No",0
+yesTxt:		.byte " Ja ",0
+noTxt:		.byte "Nein",0
 .endproc
 
 .proc drawSelectedCharName

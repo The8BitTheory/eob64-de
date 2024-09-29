@@ -38,7 +38,7 @@
 
 		rts
 text1:		.byte "'s ",0
-text2:		.byte " Zauber verwirkt.",$a,0
+text2:		.byte " Zauber ist verwirkt.",$a,0
 .endproc
 
 ; x = mode

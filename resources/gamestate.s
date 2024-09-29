@@ -2275,7 +2275,7 @@ classProfessions:
 			ldy #>msg1
 			jsr text_writeNullString
 			rts
-			msg1: .byte " must be in the front ranks to hit!",$a,0
+			msg1: .byte " kann nur in vorderen Reihen zuschlagen!",$a,0
 		:
 
 		lda partyPosition+0
@@ -2297,7 +2297,7 @@ classProfessions:
 			ldy #>msg2
 			jsr text_writeNullString
 			rts
-			msg2: .byte " missed the monster.",$a,0
+			msg2: .byte " verfehlt das Monster.",$a,0
 		:
 		tax
 		stx monsterIndex
@@ -2703,7 +2703,7 @@ case3: ; Poison
 			and #(SPELL_SLOW_POISON^$ff)
 			sta (CURRENT_PARTYMEMBER),y
 		jmp break
-poisonedMsg:	.byte "poisoned",0
+poisonedMsg:	.byte "vergiftet",0
 
 case4: ; Food
 			ldx ATTACKING_PARTYMEMBER_INDEX
@@ -2782,18 +2782,18 @@ switch_hi:	.byte >case0
 		.byte >case6
 		.byte >case7
 
-feels:		.byte " feels ",0
+feels:		.byte " f",127,"hlt sich ",0
 ret:		.byte "!",$a,0
 
 f00: .byte "",0
-f01: .byte "much stronger",0
-f02: .byte "better",0
-f03: .byte "much better",0
-f04: .byte "ill for a moment",0
-f05: .byte "no longer hungry",0
-f06: .byte "fast and agile",0
-f07: .byte "transparent",0
-f08: .byte "better",0
+f01: .byte "viel st",125,"rker",0
+f02: .byte "besser",0
+f03: .byte "viel besser",0
+f04: .byte "einen Moment ",127,"bel",0
+f05: .byte "nicht mehr hungrig",0
+f06: .byte "schnell und agil",0
+f07: .byte "durchsichtig",0
+f08: .byte "besser",0
 feelings_lo: .byte <f00,<f01,<f02,<f03,<f04,<f05,<f06,<f07,<f08
 feelings_hi: .byte >f00,>f01,>f02,>f03,>f04,>f05,>f06,>f07,>f08
 .endproc
@@ -2945,7 +2945,7 @@ noEffect:
 		jsr text_writeNullString
 		rts
 
-noEffectTxt: .byte "The wand has no apparent magical effect.",$a,0
+noEffectTxt: .byte "der Stab hat keinen magischen Effekt.",$a,0
 wandIndexToSpellIndex: .byte 0, 18, 24, 40, 13, <-1, 4
 .endproc
 .export gameState_useWandOfSilvias = gameState_useWand::wandOfSilvias
@@ -2994,7 +2994,7 @@ wandIndexToSpellIndex: .byte 0, 18, 24, 40, 13, <-1, 4
 
 		rts
 
-notCapable:	.byte " isn't capable of eating food!",$a,0
+notCapable:	.byte " kann keine Nahrung zu sich nehmen!",$a,0
 .endproc
 
 ; x=ATTACKING_PARTYMEMBER_INDEX
@@ -3195,8 +3195,8 @@ returnFalse:	clc
 		rts
 returnTrue:	sec
 		rts
-cantWearThatTypeOfArmor: .byte " can't wear that type of armor.",$a,0
-youCantPutThatItemThere: .byte "You can't put that item there.",$a,0
+cantWearThatTypeOfArmor: .byte " kann diese R",127,"stung nicht tragen.",$a,0
+youCantPutThatItemThere: .byte "Das kannst du hier nicht ablegen.",$a,0
 inventoryUsage_hi:
 		.byte $00,$00,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$00,$00,$00,$00,$00,$00,$FF,$00,$00,$01,$01
 inventoryUsage_lo:
@@ -3845,7 +3845,7 @@ noEor:  sta seed
 	rts
 
 wayBlockedString:
-	.byte "You can't go that way.",$a,0
+	.byte "Hier geht es nicht weiter.",$a,0
 .endproc
 
 ; boolean in ARGS+1
@@ -4858,7 +4858,7 @@ constitutionModifierTable: .byte <-3, <-2, <-2, <-1, <-1, <-1, 0, 0, 0, 0, 0, 0,
 
 	rts
 
-gainedLevelTxt: .byte " has gained a level of experience.",$a,0
+gainedLevelTxt: .byte " erlangt eine neue Erfahrungsstufe.",$a,0
 .endproc
 
 ; CURRENT_PARTYMEMBER
@@ -5496,7 +5496,7 @@ break:
 
 	rts
 message:
-	.byte " uses the power to turn undead!",$a,0
+	.byte " benutzt die Macht, Untote zu vertreiben",$a,0
 
 turnUndeadHit:
 	stx TARGETED_MONSTER_INDEX
@@ -5907,7 +5907,7 @@ return:	adc #0
 	jsr text_writeNullString
 
 	rts
-_is:	.byte " is ",0
+_is:	.byte " ist ",0
 _ret:	.byte "!",$a,0
 .endproc
 
