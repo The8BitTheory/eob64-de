@@ -655,9 +655,9 @@ npc7:	.word _freeHim
 _wishLuck:		.byte $a, "     Viel Gl",127,"ck auf Euren Reisen.",0
 _tendHisWounds:	.byte "Wunden behandeln",0
 _talk:			.byte "    Sprechen"   ,0
-_leave:			.byte "   Gehen"   ,0
-_hearProposal:	.byte "  Ihn anh",126,"ren" ,0
-_helpHim:		.byte "  Ihm helfen" ,0
+_leave:			.byte "  Gehen!"   ,0
+_hearProposal:	.byte "Ihn anh",126,"ren" ,0
+_helpHim:		.byte " Helfen!" ,0
 _healParty:		.byte "Team heilen" ,0
 _resurrectDead:	.byte " Wiederbeleben" ,0
 _attack:		.byte "  Angreifen!"  ,0
