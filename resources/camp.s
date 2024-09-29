@@ -396,7 +396,7 @@ noLess: .byte "Sie m",127,"ssen mindestens vier",$a,"Charaktere besitzen.",0
 
 menu:		button 32, 7,  6, 2, exitTxt
 		.byte 0
-		.byte 11,"Select a character",0
+;		.byte 11,"Select a character",0
 		.byte 11,"Charakter ausw",125,"hlen",0
 
 cr:		clickregion 32,7, 8, 3,  back, 		$05,$ff,$00, 0
@@ -569,7 +569,7 @@ cr:		clickregion 32,7,  8,3, back,        $05,$ff,$00, 0
 		clickregion  0,6, 24,1, selectSpell, $36,$ff,$00, 5
 		clickregion  0,7, 24,1, selectSpell, $37,$ff,$00, 6
 		clickregion  0,8, 24,1, selectSpell, $38,$ff,$00, 7
-		clickregion 25,7,  7,3, clearSpells, $03,$ff,$00, 0
+		clickregion 25,7,  7,3, clearSpells, $0c,$ff,$00, 0
 		.word 0
 
 .proc back
@@ -4144,7 +4144,7 @@ done:		lda #$ff
 		rts
 
 buttons:button  1, 6, 5, 2, yesTxt
-		button 33, 6, 4, 2, noTxt
+		button 33, 6, 4, 1, noTxt
 		.byte 0
 
 select:		pha
@@ -4155,7 +4155,7 @@ select:		pha
 		pla
 		jmp (INDJMP)
 
-cr:		clickregion  1,6,7,3, select, $19,$ff,$00, 1
+cr:		clickregion  1,6,7,3, select, $0a,$ff,$00, 1
 		clickregion 33,6,6,3, select, $0e,$ff,$00, 0
 		.word 0
 
